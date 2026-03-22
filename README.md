@@ -1,69 +1,171 @@
 # 💍 Eternally Yours — Wedding Services Platform
 
-> Full-stack wedding vendor discovery platform.
-> **Frontend:** React + Vite + TanStack Router + Tailwind CSS → **Firebase Hosting**
-> **Backend:** Node.js + Express + MongoDB Atlas → **Render**
-> **Images:** Unsplash URLs (seeded) + Cloudinary (optional uploads)
+<div align="center">
+
+![Eternally Yours](https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&h=400&fit=crop&q=80)
+
+**India's Premier Wedding Vendor Discovery Platform**
+
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Firebase-orange?style=for-the-badge)](https://wedding-50cf9.web.app/)
+[![Backend API](https://img.shields.io/badge/⚙️_Backend_API-Render-green?style=for-the-badge)](https://wedding-site-pd4c.onrender.com/api/health)
+[![GitHub](https://img.shields.io/badge/📁_Repository-GitHub-black?style=for-the-badge)](https://github.com/vaibhavbhagat123455/Wedding-Site)
+
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat&logo=node.js)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=flat&logo=mongodb)
+![TailwindCSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4?style=flat&logo=tailwindcss)
+![Three.js](https://img.shields.io/badge/Three.js-3D-black?style=flat&logo=three.js)
+![Firebase](https://img.shields.io/badge/Firebase-Hosting-FFCA28?style=flat&logo=firebase)
+
+</div>
 
 ---
 
-## 🗂️ Project Structure
+## 📌 About The Project
+
+**Eternally Yours** is a full-stack wedding vendor discovery platform inspired by [The Weddings Chapter](https://www.theweddingschapter.com). It allows couples to discover, browse, and connect with verified wedding professionals across India — photographers, caterers, decorators, venues, makeup artists, and more.
+
+Built as part of the **AppDost Complete IT Solution — Full Stack Developer Internship Assignment**.
+
+### 🌐 Live Links
+
+| Resource | URL |
+|---|---|
+| 🖥️ Frontend (Firebase) | https://wedding-50cf9.web.app/ |
+| ⚙️ Backend API (Render) | https://wedding-site-pd4c.onrender.com/api/health |
+| 📁 GitHub Repository | https://github.com/vaibhavbhagat123455/Wedding-Site |
+
+> ⚠️ **Note:** Backend is on Render's free tier — first request may take 30–40 seconds to wake up.
+
+---
+
+## ✨ Features
+
+### 👤 User
+- ✅ Signup & Login with JWT Authentication
+- ✅ Protected routes & persistent sessions
+- ✅ User Dashboard with inquiry history
+- ✅ Profile editing
+
+### 🏪 Vendors
+- ✅ Vendor listing with search, category filter & price filter
+- ✅ Sort by rating, price (low/high), newest
+- ✅ Pagination
+- ✅ Detailed vendor profile page
+- ✅ Send inquiry directly to vendor
+
+### 🎨 UI/UX
+- ✅ 3D animated hanging flower garlands (Three.js + WebGL)
+- ✅ Arch-shaped photo layout on hero
+- ✅ Scroll animations (Framer Motion)
+- ✅ Responsive design (mobile + desktop)
+- ✅ Shimmer loading skeletons
+- ✅ Toast notifications
+
+### 📩 Other
+- ✅ Contact / General Inquiry form
+- ✅ Auto-seeded vendor data on first run
+- ✅ Rate limiting & security headers (Helmet)
+- ✅ CORS configured for production
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+| Technology | Purpose |
+|---|---|
+| React 18 | UI Framework |
+| TanStack Router | Client-side routing |
+| Tailwind CSS | Styling |
+| Framer Motion | Animations & transitions |
+| Three.js + R3F | 3D flower garland animation |
+| Zustand | Global state (auth) |
+| Axios | HTTP client |
+| React Hot Toast | Notifications |
+
+### Backend
+| Technology | Purpose |
+|---|---|
+| Node.js + Express.js | Server & REST API |
+| MongoDB Atlas | Database |
+| Mongoose | ODM |
+| JWT + bcryptjs | Authentication |
+| Helmet | Security headers |
+| express-rate-limit | Rate limiting |
+| Cloudinary | Image uploads (optional) |
+| Multer | File handling |
+
+### Deployment
+| Service | Purpose |
+|---|---|
+| Firebase Hosting | Frontend |
+| Render | Backend |
+| MongoDB Atlas | Database |
+
+---
+
+## 📁 Project Structure
 
 ```
-wedding/
-├── frontend/               # React + Vite
-│   ├── firebase.json       # Firebase hosting config
-│   ├── .firebaserc         # Firebase project ID
-│   └── src/
-│       ├── api/            # Axios client
-│       ├── components/     # Navbar, Footer, VendorCard, HeroScene...
-│       ├── hooks/          # Zustand auth store
-│       ├── pages/          # Home, VendorListing, VendorDetails, Dashboard...
-│       └── router/         # TanStack Router
-└── backend/                # Node.js + Express
+Wedding-Site/
+├── frontend/                   # React + Vite app
+│   ├── src/
+│   │   ├── api/                # Axios client
+│   │   ├── components/         # Reusable components
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── VendorCard.jsx
+│   │   │   ├── TestimonialSlider.jsx
+│   │   │   ├── AnimatedSection.jsx
+│   │   │   └── HangingGarlands3D.jsx  # Three.js animation
+│   │   ├── hooks/              # Zustand auth store
+│   │   ├── pages/
+│   │   │   ├── Home.jsx
+│   │   │   ├── VendorListing.jsx
+│   │   │   ├── VendorDetails.jsx
+│   │   │   ├── Contact.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── Login.jsx
+│   │   │   └── Signup.jsx
+│   │   └── router/             # TanStack Router config
+│   ├── firebase.json
+│   └── .firebaserc
+│
+└── backend/                    # Node.js + Express API
     └── src/
-        ├── db/             # MongoDB connection + seed
-        ├── middleware/     # JWT auth
-        ├── models/         # Mongoose: User, Vendor, Inquiry, Contact
-        └── routes/         # auth, vendors, inquiries, contact, upload
+        ├── db/
+        │   ├── index.js        # MongoDB connection
+        │   └── seed.js         # Vendor seed data (12 vendors)
+        ├── middleware/
+        │   └── auth.js         # JWT middleware
+        ├── models/
+        │   ├── User.js
+        │   ├── Vendor.js
+        │   └── Inquiry.js      # Inquiry + Contact models
+        └── routes/
+            ├── auth.js         # /api/auth/*
+            ├── vendors.js      # /api/vendors/*
+            ├── inquiries.js    # /api/inquiries/* + /api/contact
+            └── upload.js       # /api/upload (Cloudinary)
 ```
 
 ---
 
-## ✅ Features
-
-- 🔐 **Auth** — JWT signup/login, bcrypt password hashing
-- 🏠 **Home** — 3D animated hero (Three.js), categories, featured vendors, testimonials
-- 📋 **Vendor Listing** — search, category tabs, price filter, sort, pagination
-- 🔍 **Vendor Details** — full profile, inquiry form
-- 📩 **Contact Form** — saved to MongoDB
-- 👤 **Dashboard** — inquiry history, profile editing
-- 📸 **Image Storage** — seeded vendors use Unsplash URLs (no cost). Optional Cloudinary upload route included.
-
----
-
-## 🖥️ Local Setup
+## 🚀 Local Setup
 
 ### Prerequisites
 - Node.js 18+
-- A free MongoDB Atlas account → https://cloud.mongodb.com
+- MongoDB Atlas account (free)
 
----
+### 1. Clone the repository
 
-### Step 1 — MongoDB Atlas (Free Tier)
+```bash
+git clone https://github.com/vaibhavbhagat123455/Wedding-Site.git
+cd Wedding-Site
+```
 
-1. Go to https://cloud.mongodb.com → Create free account
-2. Create a **Free M0 cluster** (512MB free)
-3. Under **Database Access** → Add a DB User (username + password)
-4. Under **Network Access** → Add IP `0.0.0.0/0` (allow all, fine for dev)
-5. Click **Connect** → **Drivers** → Copy the connection string
-   It looks like: `mongodb+srv://vaibhav:<password>@cluster0.abc12.mongodb.net/?retryWrites=true&w=majority`
-6. Replace `<password>` with your actual password and add the DB name:
-   `mongodb+srv://vaibhav:mypassword@cluster0.abc12.mongodb.net/wedding_db?retryWrites=true&w=majority`
-
----
-
-### Step 2 — Backend
+### 2. Backend Setup
 
 ```bash
 cd backend
@@ -75,27 +177,26 @@ Edit `backend/.env`:
 ```env
 PORT=5000
 NODE_ENV=development
-MONGODB_URI=mongodb+srv://vaibhav:yourpassword@cluster0.abc12.mongodb.net/wedding_db?retryWrites=true&w=majority
-JWT_SECRET=any_long_random_string_like_this_abc123xyz789
+MONGODB_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/wedding_db
+JWT_SECRET=your_long_random_secret_here
 JWT_EXPIRES_IN=7d
 FRONTEND_URL=http://localhost:5173
 ```
 
 ```bash
 npm run dev
-# → Connects to MongoDB, seeds 12 vendors automatically, starts on port 5000
-# Test: http://localhost:5000/api/health
+# ✅ MongoDB connected
+# 🚀 Server on port 5000
+# ✅ Seeded 12 vendors
 ```
 
----
-
-### Step 3 — Frontend
+### 3. Frontend Setup
 
 ```bash
-cd frontend
+cd ../frontend
 npm install
 cp .env.example .env
-# .env already has VITE_API_URL=http://localhost:5000/api for local dev
+# VITE_API_URL=http://localhost:5000/api
 
 npm run dev
 # → http://localhost:5173
@@ -103,179 +204,60 @@ npm run dev
 
 ---
 
-## 🌐 Deployment (100% Free)
+## 🌐 Deployment
 
----
+### Backend → Render
+1. New Web Service → connect GitHub repo
+2. Root Directory: `backend`
+3. Build: `npm install` | Start: `node src/index.js`
+4. Add environment variables (same as `.env`)
 
-### 🔵 Deploy Backend to Render
-
-1. Push your code to GitHub first (see Git Commit Guide below)
-2. Go to https://render.com → Sign up free → **New Web Service**
-3. Connect your GitHub repo
-4. Settings:
-   - **Root Directory:** `backend`
-   - **Build Command:** `npm install`
-   - **Start Command:** `node src/index.js`
-   - **Node Version:** 18
-5. Under **Environment Variables**, add:
-
-| Key | Value |
-|-----|-------|
-| `MONGODB_URI` | Your Atlas connection string |
-| `JWT_SECRET` | Your secret string |
-| `JWT_EXPIRES_IN` | `7d` |
-| `NODE_ENV` | `production` |
-| `FRONTEND_URL` | `https://your-app.web.app` (add after Firebase deploy) |
-
-6. Click **Deploy** — Render gives you a URL like `https://wedding-backend.onrender.com`
-7. Test: `https://wedding-backend.onrender.com/api/health`
-
-> ⚠️ Free Render services sleep after 15 min of inactivity. First request after sleep takes ~30s. This is fine for an internship demo.
-
----
-
-### 🔴 Deploy Frontend to Firebase Hosting
-
+### Frontend → Firebase Hosting
 ```bash
-# Install Firebase CLI (once)
-npm install -g firebase-tools
-
-# Login
-firebase login
-
-# In your frontend folder, create .env for production
 cd frontend
-```
-
-Create `frontend/.env.production`:
-```env
-VITE_API_URL=https://your-render-backend-url.onrender.com/api
-```
-
-```bash
-# Build the app
 npm run build
-
-# Initialize Firebase (first time only)
-firebase init hosting
-# → Select "Use an existing project" or create new
-# → Public directory: dist
-# → Single-page app: YES
-# → Don't overwrite index.html: NO
-
-# Deploy
 firebase deploy --only hosting
 ```
 
-You'll get a URL like: `https://your-project.web.app` 🎉
+---
+
+## 📡 API Endpoints
+
+| Method | Endpoint | Description | Auth |
+|---|---|---|---|
+| POST | `/api/auth/signup` | Register new user | ❌ |
+| POST | `/api/auth/login` | Login & get token | ❌ |
+| GET | `/api/auth/me` | Get current user | ✅ |
+| PUT | `/api/auth/profile` | Update profile | ✅ |
+| GET | `/api/vendors` | List vendors (search/filter/paginate) | ❌ |
+| GET | `/api/vendors/:id` | Get vendor details | ❌ |
+| POST | `/api/inquiries` | Send vendor inquiry | Optional |
+| GET | `/api/inquiries/my` | Get my inquiries | ✅ |
+| POST | `/api/contact` | General contact form | ❌ |
+| POST | `/api/upload` | Upload image (Cloudinary) | ✅ |
+| GET | `/api/health` | Health check | ❌ |
+
+
+## 👨‍💻 Developer
+
+**Vaibhav Bhalchandra Bhagat**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/vaibhav-bhagat-545600346)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat&logo=github)](https://github.com/vaibhavbhagat123455)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-orange?style=flat)](https://vaibhav-portfolio-18fa1.web.app)
+
+- 📧 vaibhav.1252130039@vit.edu
+- 📱 +91 8600297659
+- 🎓 B.Tech Information Technology | VIT Pune | CGPA: 9.0
 
 ---
 
-### 📸 Image Storage — Cloudinary (Optional)
+## 📄 License
 
-All seeded vendors use Unsplash URLs so **no image storage is needed for the demo**.
-
-If you want real image upload functionality later:
-1. Free account at https://cloudinary.com (25GB free)
-2. Add to backend `.env`:
-   ```
-   CLOUDINARY_CLOUD_NAME=your_name
-   CLOUDINARY_API_KEY=your_key
-   CLOUDINARY_API_SECRET=your_secret
-   ```
-3. The `/api/upload` route is already coded — just send a `multipart/form-data` POST with field `image`.
+This project was built as part of an internship assignment for **AppDost Complete IT Solution Pvt. Ltd.**
 
 ---
 
-## 📦 Git Commit Guide
-
-```bash
-# Setup (do once)
-git init
-git remote add origin https://github.com/vaibhavbhagat123455/eternally-yours.git
-
-# ── Commit 1 ─────────────────────────────────────────────────────
-git add README.md .gitignore
-git commit -m "chore: initial project setup with README"
-
-# ── Commit 2 ─────────────────────────────────────────────────────
-git add backend/package.json backend/src/db/ backend/src/models/
-git commit -m "feat(backend): MongoDB connection, Mongoose models (User, Vendor, Inquiry, Contact) and seed data"
-
-# ── Commit 3 ─────────────────────────────────────────────────────
-git add backend/src/middleware/ backend/src/routes/auth.js
-git commit -m "feat(backend): JWT authentication — signup, login, profile update"
-
-# ── Commit 4 ─────────────────────────────────────────────────────
-git add backend/src/routes/
-git commit -m "feat(backend): vendor listing with search/filter/pagination, inquiries, contact, Cloudinary upload route"
-
-# ── Commit 5 ─────────────────────────────────────────────────────
-git add backend/src/index.js backend/.env.example
-git commit -m "feat(backend): Express server setup with CORS, Helmet, rate limiting"
-
-# ── Commit 6 ─────────────────────────────────────────────────────
-git add frontend/package.json frontend/vite.config.js frontend/tailwind.config.js frontend/postcss.config.js frontend/index.html frontend/.env.example
-git commit -m "chore(frontend): Vite + React + TanStack Router + Tailwind scaffold"
-
-# ── Commit 7 ─────────────────────────────────────────────────────
-git add frontend/src/index.css frontend/src/api/ frontend/src/hooks/
-git commit -m "feat(frontend): global design system CSS, axios API client, Zustand auth store"
-
-# ── Commit 8 ─────────────────────────────────────────────────────
-git add frontend/src/App.jsx frontend/src/main.jsx frontend/src/router/
-git commit -m "feat(frontend): App shell and TanStack Router configuration"
-
-# ── Commit 9 ─────────────────────────────────────────────────────
-git add frontend/src/components/
-git commit -m "feat(frontend): Navbar, Footer, VendorCard, AnimatedSection, TestimonialSlider, 3D HeroScene (Three.js)"
-
-# ── Commit 10 ────────────────────────────────────────────────────
-git add frontend/src/pages/Home.jsx
-git commit -m "feat(frontend): Home page — 3D hero, stats, categories, featured vendors, testimonials, CTA"
-
-# ── Commit 11 ────────────────────────────────────────────────────
-git add frontend/src/pages/VendorListing.jsx frontend/src/pages/VendorDetails.jsx
-git commit -m "feat(frontend): Vendor Listing (search/filter/pagination) and Vendor Details with inquiry form"
-
-# ── Commit 12 ────────────────────────────────────────────────────
-git add frontend/src/pages/Login.jsx frontend/src/pages/Signup.jsx
-git commit -m "feat(frontend): Login and Signup pages with JWT auth integration"
-
-# ── Commit 13 ────────────────────────────────────────────────────
-git add frontend/src/pages/Dashboard.jsx frontend/src/pages/Contact.jsx
-git commit -m "feat(frontend): User Dashboard with inquiry history and Contact page"
-
-# ── Commit 14 ────────────────────────────────────────────────────
-git add frontend/firebase.json frontend/.firebaserc
-git commit -m "chore(frontend): Firebase hosting config"
-
-# ── Commit 15 (final) ────────────────────────────────────────────
-git add .
-git commit -m "chore: final cleanup, env examples, deployment ready"
-git push -u origin main
-```
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Frontend | React 18, Vite, TanStack Router, Tailwind CSS |
-| 3D / Animation | Three.js, React Three Fiber, Framer Motion |
-| State | Zustand |
-| Backend | Node.js, Express.js |
-| Database | MongoDB Atlas (Mongoose ODM) |
-| Auth | JWT + bcryptjs |
-| Images | Unsplash URLs (seeded) + Cloudinary (optional) |
-| Hosting | Firebase (frontend) + Render (backend) |
-
----
-
-## 📬 Submission
-
-Send to **hr@appdost.in** and **hrd@appdost.com**:
-- ✅ GitHub Repository Link
-- ✅ Frontend Live Link (Firebase)
-- ✅ Backend API Link (Render)
+<div align="center">
+  Made with ❤️ for love stories
+</div>
