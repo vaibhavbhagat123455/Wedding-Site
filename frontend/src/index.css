@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #fdf8f3;
+    color: #1a0a0f;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
+}
+
+@layer components {
+  .btn-gold {
+    @apply bg-gradient-to-r from-gold-500 to-gold-600 text-white font-semibold px-8 py-3 rounded-full
+           shadow-gold hover:shadow-glow hover:scale-105 transition-all duration-300
+           focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2;
+  }
+  .btn-outline-gold {
+    @apply border-2 border-gold-500 text-gold-600 font-semibold px-8 py-3 rounded-full
+           hover:bg-gold-500 hover:text-white transition-all duration-300;
+  }
+  .glass {
+    @apply bg-white/20 backdrop-blur-md border border-white/30;
+  }
+  .section-title {
+    @apply font-serif text-4xl md:text-5xl font-bold text-burgundy leading-tight;
+  }
+  .section-subtitle {
+    @apply font-script text-2xl text-gold-500 mb-2;
+  }
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-card;
+  }
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 bg-white/80
+           focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-transparent
+           transition-all duration-200 font-sans text-gray-700 placeholder-gray-400;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-burgundy via-gold-600 to-burgundy-light bg-clip-text text-transparent;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #fdf8f3; }
+::-webkit-scrollbar-thumb { background: #d4a820; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #b88a16; }
+
+/* Shimmer */
+.shimmer-bg {
+  background: linear-gradient(90deg, #f0e8d8 25%, #faf4e8 50%, #f0e8d8 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Gold divider */
+.gold-divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent, #d4a820, transparent);
+  border: none;
+  margin: 1.5rem auto;
+  width: 60%;
+}
+
+/* Page enter animation */
+.page-enter { animation: fadeUp 0.5s ease forwards; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
